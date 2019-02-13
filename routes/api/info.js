@@ -80,7 +80,7 @@ router.delete('/delete/:RTN', function(req, res, next){
     var infoRTN = req.params.RTN;
     var newData = data.filter(
       function (doc, i) {
-        if (doc.RTN == infoRTN) {
+        if (doc._id == infoRTN) {
           return false;
         }
         return true;
@@ -104,3 +104,4 @@ router.delete('/delete/:RTN', function(req, res, next){
     }
   });
   
+  module.exports = router;
