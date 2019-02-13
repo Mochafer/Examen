@@ -45,4 +45,62 @@ router.post('/new', function(req, res, next){
     });
   });
 
-module.exports = router;
+ /* router.put('/put/:rtn', function(req, res, next){
+    var infoRTN = req.params.RTN;
+    var infoUPD = req.body.Correo;
+    var InfoUpdated = null;
+    var newData = data.map(
+      function(doc, i){
+        if (doc._id == infoRTN){
+          InfoUpdated = Object.assign(
+            {},
+            doc,
+            {"done":true},
+            infoUPD
+            );
+          return InfoUpdated;
+        }
+        return doc;
+      }
+    );
+    
+    data = newData;
+    fileModel.write(data, function (err) {
+      if (err) {
+        console.log(err);
+        return res.status(500).json({ 'error': 'Error al Guardar Data' });
+      }
+      return res.status(200).json(_thingUpdated);
+    });
+  });
+*/
+  
+
+router.delete('/delete/:RTN', function(req, res, next){
+    var infoRTN = req.params.RTN;
+    var newData = data.filter(
+      function (doc, i) {
+        if (doc.RTN == infoRTN) {
+          return false;
+        }
+        return true;
+      }
+    );
+    data = newData;
+    fileModel.write(data, function (err) {
+      if (err) {
+        console.log(err);
+        return res.status(500).json({ 'error': 'Error al Guardar Data' });
+      }
+      return res.status(200).json({"delete": infoRTN});
+    });
+  }); 
+  
+  fileModel.read(function(err , filedata){
+    if(err){
+      console.log(err);
+    } else{
+      data = JSON.parse(filedata);
+    }
+  });
+  
