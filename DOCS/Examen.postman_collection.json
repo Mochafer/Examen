@@ -22,7 +22,7 @@
 					"urlencoded": [
 						{
 							"key": "RTN",
-							"value": "2",
+							"value": "23",
 							"type": "text"
 						},
 						{
@@ -92,6 +92,37 @@
 					]
 				},
 				"description": "Mostrando Las Empresas"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/info/delete/2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3000/api/info/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"info",
+						"delete",
+						"2"
+					]
+				},
+				"description": "Borrando Informacion"
 			},
 			"response": []
 		}
